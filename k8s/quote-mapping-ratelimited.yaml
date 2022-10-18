@@ -1,0 +1,15 @@
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: quote-backend
+spec:
+  hostname: "*"
+  prefix: /backend/
+  service: quote
+  labels:
+    emissary:
+      - request_label_group:
+        - x-emissary-test-allow:
+          request_headers:
+              key: "x-emissary-test-allow"
+              header_name: "x-emissary-test-allow"

@@ -1,0 +1,9 @@
+apiVersion: getambassador.io/v3alpha1
+kind: RateLimitService
+metadata:
+  name: ratelimit-example
+spec:
+  service: "ratelimit-example.default:5000"
+  protocol_version: v3 # Required in emissary-ingress v3.0.0+
+  domain: emissary # override defaul "ratelimt" domain see docs for details
+  failure_mode_deny: true # forces 500 response if unable to talk with RateLimitService
