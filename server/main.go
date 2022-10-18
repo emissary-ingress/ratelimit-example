@@ -61,7 +61,7 @@ func (rls *rateLimitServer) ShouldRateLimit(ctx context.Context, request *rateli
 	for _, descriptor := range request.Descriptors {
 		for _, entry := range descriptor.Entries {
 			fmt.Printf("  %s = %s\n", entry.Key, entry.Value)
-			if entry.Key == "x-ambassador-test-allow" && entry.Value == "true" {
+			if entry.Key == "x-emissary-test-allow" && entry.Value == "true" {
 				allow = true
 				break
 			}
