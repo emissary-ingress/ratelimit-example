@@ -9,6 +9,7 @@ This implements the bare-bones plumbing for a demo RateLimit Service. The implem
   - [Build Server Image](#build-server-image)
   - [Push Image](#push-image)
   - [Deploy RateLimit Service](#deploy-ratelimit-service)
+  - [Test it out](#test-it-out)
 
 ## Development
 
@@ -95,6 +96,8 @@ This will Kubectl apply the sample yaml files found in the `k8s` folder:
 - emissary-ratelimit-service.yaml - *RateLimitService configured for the ratelimit-example and `emissary` domain*
 - quote-mapping-ratelimited.yaml - *updated mapping which includes RateLimit labels*
 
+### Test it out
+
 Once it is done deploying you can test that it is working:
 
 ```shell
@@ -106,4 +109,3 @@ curl -i -H "x-emissary-test-allow: true"  http://$LB_ENDPOINT/backend/
 ```
 
 If you receive a `500` error code this means Envoy was unable to talk to the RateLimit-Example service. Be sure to check your deployment was successful and whether you can connect to it yourself.
-
