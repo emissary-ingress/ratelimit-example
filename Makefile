@@ -3,6 +3,9 @@
 # currently checked into the repository, which is subject to change
 proto-gen:
 	rm -rf gen
+	buf generate buf.build/opencensus/opencensus
+	buf generate buf.build/prometheus/client-model
+	buf generate buf.build/opentelemetry/opentelemetry
 	buf generate buf.build/googleapis/googleapis
 	buf generate buf.build/cncf/xds
 	buf generate buf.build/envoyproxy/protoc-gen-validate
